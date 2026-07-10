@@ -343,7 +343,7 @@ findAll/*EXPLICADO DESPUES*/({
             [op.eq]: 1, //= 1
             [op.ne]: 1, //!= 1
             [op.is]: null, //IS NULL (Valido con NULL, TRUE y FALSE)
-            [op.not]: true, //IS NOT NULL (Valido con NULL, TRUE y FALSE)
+            [op.not]: true, //IS NOT TRUE (Valido con NULL, TRUE y FALSE)
 
             [op.gt]: 1, //> 1                          Greater Than
             [op.gte]: 1, //>= 1                        Greater Than Equal
