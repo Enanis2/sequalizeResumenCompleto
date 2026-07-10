@@ -142,6 +142,18 @@ const trabajadoresCondicion = Trabajador.findAll({
     }
 });
 
+const trabajadoresOrdenadosPorEdadAscendente = Trabajador.findAll({
+    order: [['edad']]
+});
+
+const cantTrabajadoresAgrupadosPorEdad = Trabajador.findAll({
+    group: ['edad']
+});
+
+const los10UsuariosMasViejos = Trabajador.findAll({
+    limit: 10
+});
+
 const trabajador1 = Trabajador.findByPk(1);
 
 

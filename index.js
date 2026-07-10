@@ -422,7 +422,15 @@ await User.count();
 await User.count({
     where: {
         admin: true
-    }
+    }, //Trae la cantidad de usuarios con admin en true
+
+    //Podes agrupar (goup by) con la clausula group
+    group: 'lastName', //Trae la cantidad de usuarios que tienen admin en true agrupados por apellido
+
+    //Podes ordenar (order by) con la clausula order. OJO, HAY MAS COSAS DE ORDER QUE SINCERAMENTE NO NTIENDO, NO CREO QUE TOME NADA DE ESO, PERO POR LAS DUDAS ESTÁN ACÁ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#ordering-and-grouping
+    //| Formato
+    //order: [['campo', 'DESC o ASC'],['otro campo opcional', 'DESC o ASC']. Primero ordena por la primera cclausula, si hay dos iguales, ordena por la segunda
+    order: ['name', 'DESC']
 });
 
 await User.max('id');
@@ -432,6 +440,13 @@ await User.min('id', {where:
             [op.gt]: 5
         }
     }
+});
+
+//Limite de registros
+//Podes poner un limite de filas o un espaciado entre la primera y la primera que selecciona
+await User.findAll({
+    limit: '10', //Trae 10 filas
+    offset: '3' //Espaciado de 3 antes de empezar a traer
 });
 
 //Tambien se pueden pasar como atributos de un select
@@ -984,7 +999,7 @@ const users = await User.bulkCreate([{ lastName: 'Lauti' }, { lastName: 'Rabi', 
 //--SELECT--
 //-FindAll-
 
-//•Ponerle una agregación sin tener que poner todos los campos
+//•Ponerle una agregación sin tener que poner todos los campos (Agregar un campo al select)
 await User.findAll({
     attributes: {
         include: [[sequelize.fn('COUNT', sequelize.col('id')), 'Cant_id']]
@@ -996,22 +1011,6 @@ await User.findAll({
     attributes: { exclude: ['admin'] },
 }) //SELECT id, lastName FROM User
 
-//•Podes agrupar (goup by) con la clausula group
-await User.findAll({
-    where: {
-        admin: true
-    },
-    attributes: {
-        include: [[sequelize.fn('COUNT', sequelize.col('id')), 'Cant_id']]
-    },
-    group: 'lastName',
-}); //Selecciona todos los campos + count(id) de lso registros con admin = true y los agrupa por apellido
-
-//Podes poner un limite de filas o un espaciado entre la primera y la primera que selecciona
-await User.findAll({
-    limit: '10', //Trae 10 filas
-    offset: '3' //Espaciado de 3 antes de empezar a traer
-});
 //-FindOrCreate-
 //Busca deacuerdo a ciertas clausulas, si lo encuentra devuelve el registro y un boolean en false, si no, la crea rellenando los demás espacios con los valores en defaults:{} y devolviendo ese boolean en true
 const {lau, creado} = await User.findOrCreate({
