@@ -427,7 +427,7 @@ await User.count({
     //Podes agrupar (goup by) con la clausula group
     group: 'lastName', //Trae la cantidad de usuarios que tienen admin en true agrupados por apellido
 
-    //Podes ordenar (order by) con la clausula order. OJO, HAY MAS COSAS DE ORDER QUE SINCERAMENTE NO NTIENDO, NO CREO QUE TOME NADA DE ESO, PERO POR LAS DUDAS ESTÁN ACÁ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#ordering-and-grouping
+    //Podes ordenar (order by) con la clausula order. OJO, HAY MAS COSAS DE ORDER QUE SINCERAMENTE NO NTIENDO, NO CREO QUE TOME NADA DE ESO, PERO POR LAS DUDAS ESTÁN ACÁ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#ordering-and-grouping  https://sequelize.org/docs/v6/advanced-association-concepts/eager-loading/#ordering-eager-loaded-associations
     //| Formato
     //order: [['campo', 'DESC o ASC'],['otro campo opcional', 'DESC o ASC']. Primero ordena por la primera cclausula, si hay dos iguales, ordena por la segunda
     order: ['name', 'DESC']
