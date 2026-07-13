@@ -86,7 +86,7 @@ const constraintsYvalidaciones = sequelize.define(
                     args: [[1, 2]],
                     msg: "Tiene que estar entre 1 y 2"
                 }
-                //Si bien a isEmail normalmente le paso un true, no hace falta ponerlo como args porque en realidad ese true le dice a sequelize que lo active, no es un argumento que le paso a la validacion en si, los argumentos de IsIn si van a la validacion
+                //Si bien a isEmail normalmente le paso un true, no hace falta ponerlo como args porque en realidad ese true le dice a sequelize que lo active, no es un argumento que le paso a la validacion en si, los argumentos de IsIn si van a la validacion [./img/explicacionIsIn.png]
 
                 //[./img/todasLasValidations.png]
             }
