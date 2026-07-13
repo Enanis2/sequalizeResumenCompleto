@@ -38,7 +38,7 @@ const User /* Nombre de la constante */ = sequelize.define( //Defino un modelo
             unique: true,
         },
         admin: {
-            type: DataTypoes.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: 'false',
             validate: { //Otras configuraciones
                 len: [4, 6] //Longitud entre 4 y 6
