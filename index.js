@@ -62,7 +62,7 @@ const constraintsYvalidaciones = sequelize.define(
     'constraintsYvalidaciones', 
     {
         //Las constraints son a nivel de SQL
-        constraints: {type: DataTypes.TEXT,
+        constraints: {type: DataTypes.TEXT, //OJO, EL CONSTRAINTS QUE DICE AL PRINCIPIO DE ESTE RENGLON NO ES QUE ESTOY CREANDO UNA CONSTRAINT, SINO QUE AL CAMPO LE PUSE "CONSTRAINTS" COMO LE PUDE HABER PUESTO "NOMBRE"
             unique: true, //Constraint. UNIQUE
             primaryKey: true, //Constraint. PRIMARY KEY
             foreignKey: true, //Constraint. FORERIGN KEY
